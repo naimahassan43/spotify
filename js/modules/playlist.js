@@ -10,6 +10,24 @@ const Playlist = (() => {
 
   const init = () => {
     render();
+    listeners();
+  };
+
+  const listeners = () => {
+    // 1. get the index of the li tag
+    // 2. change the currentPlayIndex to the index of the li tag
+    // 3. change the icon of play and pause
+    // 4. play or pause the song
+    // 5. if it's not the same song then change the song url to the currently playing song
+    // 6. pause the currently playing song and play the currently selected song
+
+    playListElem.addEventListener("click", (e) => {
+      if (e.target.matches(".fa")) {
+        const listEl = e.target.parentNode.parentNode;
+        const clickedIndex = [...listEl.parentNode.children].indexOf(listEl);
+        console.log(clickedIndex);
+      }
+    });
   };
 
   const render = () => {
