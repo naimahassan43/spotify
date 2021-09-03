@@ -15,12 +15,14 @@ const Playlist = (() => {
   const render = () => {
     let markup = "";
 
-    songs.forEach((song) => {
+    songs.forEach((song, index) => {
       markup += `
-             <li class="playlist__song">
+             <li class="playlist__song ${
+               index == currentPlayIndex ? "playlist__song--active" : ""
+             }">
               <div class="play-pause">
                 <i class="fa fa-play pp-icon">
-              </i>
+                </i>
               
               </div>
               <div class="playlist__song-details">
