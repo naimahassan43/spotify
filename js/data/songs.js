@@ -20,40 +20,42 @@ const songsList = [
     title: "Rasulullah",
     artist: "Iman Farrar",
   },
+
   {
     id: "4",
+    url: "../../music/Turn-to-Allah.mp3",
+    time: "00:48",
+    title: "Turn to Allah",
+    artist: "Yusuf Islam",
+  },
+  {
+    id: "5",
+    url: "../../music/Who-next-your-mother.mp3",
+    time: "02:37",
+    title: "Who next, your mother",
+    artist: "Yusuf Islam",
+  },
+
+  {
+    id: "6",
     url: "../../music/He-Was-Alone-YouAreNotAlone.mp3",
     time: "03:49",
     title: "He Was Alone You Are Not Alone",
     artist: "Yusuf Cat Stevens",
   },
   {
-    id: "5",
+    id: "7",
     url: "../../music/beraaheen.mp3",
     time: "06:44",
     title: "Be Raheen",
     artist: "Mishari Rashid Alafasy",
   },
   {
-    id: "6",
+    id: "8",
     url: "../../music/faashhad.mp3",
     time: "03:44",
     title: "Fa Ashhad",
     artist: "Mishari Rashid Alafasy",
-  },
-  {
-    id: "7",
-    url: "../../music/Who-next-your-mother.mp3",
-    time: "02:37",
-    title: "Who next, your mother",
-    artist: "Yusuf Islam",
-  },
-  {
-    id: "8",
-    url: "../../music/Turn-to-Allah.mp3",
-    time: "00:48",
-    title: "Turn to Allah",
-    artist: "Yusuf Islam",
   },
   {
     id: "9",

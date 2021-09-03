@@ -2,9 +2,9 @@ import songsList from "../data/songs.js";
 
 const Playlist = (() => {
   const songs = songsList;
-  const currentPlayIndex = 0;
-  const currentSong = new Audio(songs[currentPlayIndex].url);
-  const isPlaying = false;
+  let currentPlayIndex = 0;
+  let currentSong = new Audio(songs[currentPlayIndex].url);
+  let isPlaying = false;
 
   const playListElem = document.querySelector(".playlist");
 
@@ -21,14 +21,14 @@ const Playlist = (() => {
     if (index === currentPlayIndex) {
       // toggle play and pause
       togglePlayPause();
-      console.log("Current song");
     } else {
-      console.log("Different song");
       // change the current play index
       // pause the previous song if it is playing
       // play the new song
 
       currentPlayIndex = index;
+      currentSong.src = songs[currentPlayIndex].url;
+      togglePlayPause();
     }
   };
   const listeners = () => {
