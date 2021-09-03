@@ -1,10 +1,10 @@
 const songsList = [
   {
     id: "1",
-    url: "../../music/original-life.mp3",
-    time: "02:09",
-    title: "Original Life",
-    artist: "Mishari Rashid Alafasy",
+    url: "../../music/mowla.mp3",
+    time: "03:36",
+    title: "Maula",
+    artist: "Muza",
   },
   {
     id: "2",
@@ -65,10 +65,10 @@ const songsList = [
 
   {
     id: "10",
-    url: "../../music/mowla.mp3",
-    time: "03:36",
-    title: "Mowla",
-    artist: "Unknown",
+    url: "../../music/original-life.mp3",
+    time: "02:09",
+    title: "Original Life",
+    artist: "Mishari Rashid Alafasy",
   },
 ];
 

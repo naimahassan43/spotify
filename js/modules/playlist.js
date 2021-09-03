@@ -13,6 +13,24 @@ const Playlist = (() => {
     listeners();
   };
 
+  const togglePlayPause = () => {
+    return currentSong.paused ? currentSong.play() : currentSong.pause();
+  };
+
+  const mainPlay = (index) => {
+    if (index === currentPlayIndex) {
+      // toggle play and pause
+      togglePlayPause();
+      console.log("Current song");
+    } else {
+      console.log("Different song");
+      // change the current play index
+      // pause the previous song if it is playing
+      // play the new song
+
+      currentPlayIndex = index;
+    }
+  };
   const listeners = () => {
     // 1. get the index of the li tag
     // 2. change the currentPlayIndex to the index of the li tag
@@ -25,7 +43,8 @@ const Playlist = (() => {
       if (e.target.matches(".fa")) {
         const listEl = e.target.parentNode.parentNode;
         const clickedIndex = [...listEl.parentNode.children].indexOf(listEl);
-        console.log(clickedIndex);
+        mainPlay(clickedIndex);
+        render();
       }
     });
   };
@@ -33,13 +52,21 @@ const Playlist = (() => {
   const render = () => {
     let markup = "";
 
+    const toggleIcon = (index) => {
+      if (currentPlayIndex == index) {
+        return currentSong.paused ? "fa-play" : "fa-pause";
+      } else {
+        return "fa-play";
+      }
+    };
+
     songs.forEach((song, index) => {
       markup += `
              <li class="playlist__song ${
                index == currentPlayIndex ? "playlist__song--active" : ""
              }">
               <div class="play-pause">
-                <i class="fa fa-play pp-icon">
+                <i class="fa ${toggleIcon(index)} pp-icon">
                 </i>
               
               </div>
