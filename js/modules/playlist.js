@@ -1,4 +1,5 @@
 import songsList from "../data/songs.js";
+import PlayInfo from "./playinfo.js";
 
 const Playlist = (() => {
   const songs = songsList;
@@ -21,6 +22,7 @@ const Playlist = (() => {
     if (index === currentPlayIndex) {
       // toggle play and pause
       togglePlayPause();
+      isPlaying = currentSong.paused ? false : true;
     } else {
       // change the current play index
       // pause the previous song if it is playing
@@ -29,6 +31,7 @@ const Playlist = (() => {
       currentPlayIndex = index;
       currentSong.src = songs[currentPlayIndex].url;
       togglePlayPause();
+      isPlaying = currentSong.paused ? false : true;
     }
   };
   const listeners = () => {
@@ -45,10 +48,20 @@ const Playlist = (() => {
         const clickedIndex = [...listEl.parentNode.children].indexOf(listEl);
         mainPlay(clickedIndex);
         render();
+        PlayInfo.setState({
+          songCount: songs.length,
+          isPlaying: isPlaying,
+          currentSong: songs[currentPlayIndex],
+        });
       }
     });
   };
 
+  PlayInfo.setState({
+    songCount: songs.length,
+    isPlaying: isPlaying,
+    currentSong: songs[currentPlayIndex],
+  });
   const render = () => {
     let markup = "";
 
