@@ -34,6 +34,12 @@ const Playlist = (() => {
       isPlaying = currentSong.paused ? false : true;
     }
   };
+
+  const flip = () => {
+    togglePlayPause();
+    render();
+  };
+
   const listeners = () => {
     // 1. get the index of the li tag
     // 2. change the currentPlayIndex to the index of the li tag
@@ -97,6 +103,7 @@ const Playlist = (() => {
   };
   return {
     init,
+    flip,
   };
 })();
 

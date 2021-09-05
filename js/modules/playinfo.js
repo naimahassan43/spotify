@@ -1,3 +1,5 @@
+import Playlist from "./playlist.js";
+
 const PlayInfo = (() => {
   // state object
   const state = {
@@ -15,6 +17,21 @@ const PlayInfo = (() => {
   // Initialize function
   const init = () => {
     render();
+    togglePlayPause();
+  };
+
+  const togglePlayPause = () => {
+    playerTrigger.addEventListener("click", () => {
+      // 1. change the state
+
+      state.isPlaying = state.isPlaying ? false : true;
+      // 2. render the application
+
+      render();
+      // 3. play or pause the song from playlist component
+
+      Playlist.flip();
+    });
   };
   // change state
   const setState = (obj) => {
