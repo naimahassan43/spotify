@@ -18,6 +18,8 @@ const PlayInfo = (() => {
   const init = () => {
     render();
     togglePlayPause();
+    playPrev();
+    playNext();
   };
 
   const togglePlayPause = () => {
@@ -31,6 +33,20 @@ const PlayInfo = (() => {
       // 3. play or pause the song from playlist component
 
       Playlist.flip();
+    });
+  };
+
+  const playNext = () => {
+    playerNext.addEventListener("click", () => {
+      Playlist.playNext();
+      render();
+    });
+  };
+  const playPrev = () => {
+    playerPrev.addEventListener("click", () => {
+      Playlist.playPrev();
+
+      render();
     });
   };
   // change state

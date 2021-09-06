@@ -40,6 +40,37 @@ const Playlist = (() => {
     render();
   };
 
+  const playNext = () => {
+    if (songs[currentPlayIndex + 1]) {
+      currentPlayIndex++;
+      currentSong.src = songs[currentPlayIndex].url;
+      togglePlayPause();
+      isPlaying = true;
+      render();
+
+      PlayInfo.setState({
+        songCount: songs.length,
+        currentSong: songs[currentPlayIndex],
+        isPlaying: isPlaying,
+      });
+    }
+  };
+
+  const playPrev = () => {
+    if (songs[currentPlayIndex - 1]) {
+      currentPlayIndex--;
+      currentSong.src = songs[currentPlayIndex].url;
+      togglePlayPause();
+      isPlaying = true;
+      render();
+
+      PlayInfo.setState({
+        songCount: songs.length,
+        currentSong: songs[currentPlayIndex],
+        isPlaying: isPlaying,
+      });
+    }
+  };
   const listeners = () => {
     // 1. get the index of the li tag
     // 2. change the currentPlayIndex to the index of the li tag
@@ -104,6 +135,8 @@ const Playlist = (() => {
   return {
     init,
     flip,
+    playNext,
+    playPrev,
   };
 })();
 
