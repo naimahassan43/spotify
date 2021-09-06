@@ -1,5 +1,6 @@
 import songsList from "../data/songs.js";
 import PlayInfo from "./playinfo.js";
+import Trackbar from "./trackbar.js";
 
 const Playlist = (() => {
   const songs = songsList;
@@ -92,6 +93,10 @@ const Playlist = (() => {
         });
       }
     });
+
+    currentSong.addEventListener("timeupdate", () => {
+      Trackbar.setState(currentSong);
+    });
   };
 
   PlayInfo.setState({
@@ -99,6 +104,10 @@ const Playlist = (() => {
     isPlaying: isPlaying,
     currentSong: songs[currentPlayIndex],
   });
+
+  // Trackbar.setState({
+
+  // })
   const render = () => {
     let markup = "";
 
